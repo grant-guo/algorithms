@@ -1,6 +1,6 @@
 package grant.guo.algorithms.list
 
-object OrderedList extends App {
+object IsListOrdered extends App {
   def isListOrdered(list: List[Int]): Boolean = {
     list.length match {
       case 1 => true
