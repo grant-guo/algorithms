@@ -12,4 +12,10 @@ object RotateList extends App {
     rotateR(n, Nil, list)
   }
   println(rotate(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)))
+
+  def rotate1(n: Int, list: List[Symbol]): List[Symbol] = {
+    val (l, r) = SplitAt.split(n, list)
+    r ::: l
+  }
+  println(rotate1(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)))
 }
