@@ -2,8 +2,8 @@ package grant.guo.algorithms.list
 
 object PackConsecutiveDuplicates extends App {
 
-  def pack(list: List[Symbol]): List[List[Symbol]] = {
-    def packR(ret: List[List[Symbol]], curr: List[Symbol]): List[List[Symbol]] = {
+  def pack[T](list: List[T]): List[List[T]] = {
+    def packR(ret: List[List[T]], curr: List[T]): List[List[T]] = {
       curr match {
         case Nil => ret.reverse
         case value :: tail => {
@@ -18,12 +18,12 @@ object PackConsecutiveDuplicates extends App {
 
   /**
     * encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
-    * res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
+    * res0: List[(Int, T)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
     *
     * @param list
     * @return
     */
-  def encode(list: List[Symbol]): List[(Int, Symbol)] = {
+  def encode[T](list: List[T]): List[(Int, T)] = {
     pack(list).map(l => {
       (
         l.length,
@@ -41,7 +41,7 @@ object PackConsecutiveDuplicates extends App {
     * @param list
     * @return
     */
-  def encodeModified(list: List[Symbol]): List[Any] = {
+  def encodeModified[T](list: List[T]): List[Any] = {
     encode(list).map(l => {
       l._1 match {
         case 1 => l._2

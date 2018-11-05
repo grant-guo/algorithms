@@ -1,8 +1,8 @@
 package grant.guo.algorithms.list
 
 object RotateList extends App {
-  def rotate(n: Int, list: List[Symbol]): List[Symbol] = {
-    def rotateR(k: Int, head: List[Symbol], curr: List[Symbol]): List[Symbol] = {
+  def rotate[T](n: Int, list: List[T]): List[T] = {
+    def rotateR(k: Int, head: List[T], curr: List[T]): List[T] = {
       (k, curr) match {
         case (0, tail) => curr ::: head.reverse
         case (_, Nil) => head.reverse
@@ -13,7 +13,7 @@ object RotateList extends App {
   }
   println(rotate(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)))
 
-  def rotate1(n: Int, list: List[Symbol]): List[Symbol] = {
+  def rotate1[T](n: Int, list: List[T]): List[T] = {
     val (l, r) = SplitAt.split(n, list)
     r ::: l
   }

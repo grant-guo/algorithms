@@ -1,8 +1,8 @@
 package grant.guo.algorithms.list
 
 object SplitAt extends App {
-  def split(n: Int, list: List[Symbol]): (List[Symbol], List[Symbol]) = {
-    def splitR(k: Int, head: List[Symbol], curr: List[Symbol]): (List[Symbol], List[Symbol]) = {
+  def split[T](n: Int, list: List[T]): (List[T], List[T]) = {
+    def splitR(k: Int, head: List[T], curr: List[T]): (List[T], List[T]) = {
       (k, curr) match {
         case (0, tail) => (head.reverse, tail)
         case (_, Nil) => throw new Exception("n is out of range")
@@ -13,12 +13,12 @@ object SplitAt extends App {
   }
   println(split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)))
 
-  def split1(n: Int, list: List[Symbol]): (List[Symbol], List[Symbol]) = {
+  def split1[T](n: Int, list: List[T]): (List[T], List[T]) = {
     list.splitAt(n)
   }
   println(split1(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)))
 
-  def split2(n: Int, list: List[Symbol]): (List[Symbol], List[Symbol]) = {
+  def split2[T](n: Int, list: List[T]): (List[T], List[T]) = {
     (n, list) match {
       case (0, tail) => (Nil, tail)
       case (_, Nil) => throw new Exception("n is out of range")
